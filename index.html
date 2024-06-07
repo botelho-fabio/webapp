@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Web App</title>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Botelho" />
+    <meta name="description" content="Web App" />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" type="text/css" href="./estilo.css" />
+    <script type="text/javascript" src="./codigo.js"></script>
+  </head>
+  <body>
+    <header>
+      <!--Logomarca-->
+      <span id="logo">Web App</span>
+      <nav>
+        <ul>
+          <li><a href="#opcao1">Opcao 1</a></li>
+          <li><a href="#opcao2">Opcao 2</a></li>
+          <li><a href="#opcao3">Opcao 3</a></li>
+          <li><a href="#opcao4">Opcao 4</a></li>
+          <li><a href="#twitter">Twitter</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="topo">
+        <h1>Web App</h1>
+        <p id="valor"></p>
+        <script>
+          document.getElementById('valor').innerHTML = m
+        </script>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum rem
+          aperiam molestiae natus beatae ipsum quibusdam quod dolorem saepe,
+          velit quos amet doloribus neque aliquam cumque dolores numquam. Est,
+          molestias.
+        </p>
+
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos, aut
+          cum enim eos vitae atque deleniti optio rerum amet maiores earum quis
+          placeat impedit magni hic repellendus odio blanditiis corporis!
+        </p>
+      </section>
+      <section id="opcao1">
+        <h2>Sistema de Avalicao da UniEvangelica</h2>
+        <p>Ciclo 1:</p>
+        <input id="n1" type="text" />
+        <p>Ciclo 2:</p>
+        <input id="n2" type="text" />
+        <p>Ciclo 3:</p>
+        <input id="n3" type="text" />
+
+        <button type="button" onclick="calculaMediaSemestral()">
+          Calcula Media Semestral
+        </button>
+        <p>Resultado Avaliacao:</p>
+        <p id="resultado_avaliacao_semestral"></p>
+        <p id="progressao"></p>
+
+        <script type="text/javascript">
+          function calculaMediaSemestral() {
+            let av1 = document.getElementById('n1').value
+            av1 = av1 * 1
+            let av2 = document.getElementById('n2').value
+            av2 = av2 * 1
+            let av3 = document.getElementById('n3').value
+            av3 = av3 * 1
+            let media_semestral = 0
+            let r = 0
+            let p = ''
+
+            if (isNaN(av1) || isNaN(av2) || isNaN(av3)) {
+              r = 'Voce digitou um valor errado. Entre com um numero'
+            } else {
+              r = (av1 + av2 + av3) / 3
+              if (r < 60) {
+                p = 'Reprovado'
+                document.getElementById('progressao').style.color = 'red'
+              } else {
+                p = 'Aprovado'
+                document.getElementById('progressao').style.color = 'blue'
+              }
+            }
+
+            media_semestral = r
+            //console.log(media_semestral)
+            document.getElementById('resultado_avaliacao_semestral').innerHTML =
+              media_semestral
+
+            document.getElementById('progressao').innerHTML = p
+          }
+        </script>
+
+        <p>Data e Hora</p>
+
+        <p>
+          <button onclick="displayDate()">Data e hora</button>
+        </p>
+        <script>
+          function displayDate() {
+            document.getElementById('resultado').innerHTML = Date()
+          }
+        </script>
+        <p>Data e Hora</p>
+        <p id="resultado"></p>
+
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+          molestiae, unde rerum, ipsum corporis culpa sequi consequuntur non
+          tenetur facere nobis perferendis dignissimos ipsam nihil dolorum
+          aperiam alias error blanditiis!
+        </p>
+      </section>
+      <section id="opcao2">
+        <h2>Opcao 2</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo eos
+          esse deleniti dolorem? Provident sed hic quibusdam cum cumque
+          laboriosam iste, fugiat doloremque sapiente rerum officia quidem
+          incidunt ea nemo.
+        </p>
+        <p>Entre com o Salario do Funcionario:</p>
+
+        <input id="salario" type="text" />
+
+        <button type="button" onclick="calculaAumento()">Aumento</button>
+
+        <p id="novosalario"></p>
+
+        <script>
+          function calculaAumento() {
+            // Get the value of the input field with id="numb"
+            let x = document.getElementById('salario').value
+            // If x is Not a Number or less than one or greater than 10
+            let text
+            let ns // novosalario
+            if (isNaN(x)) {
+              text = 'Voce digitou um valor errado. Entre com um numero'
+            } else {
+              if (x <= 2500) {
+                ns = x * 1.2
+              } else {
+                ns = x * 1.1
+              }
+              text = ns
+            }
+
+            document.getElementById('novosalario').innerHTML = text
+          }
+        </script>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque labore
+          id adipisci explicabo tempore iste, veniam fugiat dolore natus, ad non
+          facilis vitae! Modi explicabo animi facere et facilis aliquid?
+        </p>
+      </section>
+      <section id="opcao3">
+        <h2>Convertendo de Celsius para Fahrenheit</h2>
+        <p>Entre com a temperatura em graus Celsius:</p>
+
+        <input id="celsius" type="text" />
+
+        <button type="button" onclick="calculaFahrenheit()">
+          Calcula Fahrenheit
+        </button>
+
+        <p id="fahrenheit"></p>
+        <script>
+          function calculaFahrenheit() {
+            let celsius = document.getElementById('celsius').value
+
+            let resultado
+            let f // temperatura em graus Fahrenheit
+            if (isNaN(celsius)) {
+              resultado = 'Voce digitou um valor errado. Entre com um numero'
+            } else {
+              f = celsius * 1.8 + 32
+              resultado = f
+            }
+
+            document.getElementById('fahrenheit').innerHTML = resultado
+          }
+        </script>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
+          expedita reprehenderit incidunt necessitatibus, tempora nesciunt
+          ratione eveniet architecto laudantium debitis dolores. Qui ipsa fugit
+          distinctio nostrum quis obcaecati facere voluptate.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolorum
+          neque ut vel possimus minima similique voluptatibus corporis error.
+          Dicta, voluptate? Soluta voluptatum molestias ea natus dignissimos!
+          Quo, animi vel.
+        </p>
+      </section>
+      <section id="opcao4">
+        <h2>Opcao 4</h2>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates
+          non nihil alias eos dolore. Voluptatibus aperiam fuga nostrum
+          reiciendis ea esse vitae ab omnis debitis. Quia, exercitationem porro.
+          Deserunt, eos!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+          repudiandae ut, officia eos reiciendis molestiae alias quo minima sed!
+          Ut, quo. Incidunt numquam mollitia veritatis sunt esse nobis, aliquid
+          voluptatem.
+        </p>
+      </section>
+      <section id="twitter">
+        <a
+          class="twitter-timeline"
+          href="https://twitter.com/UbisoftSupport?ref_src=twsrc%5Etfw"
+          >@UbisoftSupport</a
+        >
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charset="utf-8"
+        ></script>
+      </section>
+    </main>
+    <aside>
+      <section>
+        <h2>Glossario</h2>
+        <dl>
+          <dt>definicao 1</dt>
+          <dd>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex corrupti
+            animi quo repudiandae, et ratione suscipit vero sint odio,
+            voluptatum modi? Doloremque assumenda, similique sint ex fugit quas
+            mollitia magni?
+          </dd>
+          <dt>definicao 2</dt>
+          <dd>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            vero quidem quasi placeat iure quas nostrum praesentium! Iste animi
+            molestias nisi? Eius numquam mollitia vitae quos enim eum aliquam
+            illum.
+          </dd>
+          <dt>definicao 3</dt>
+          <dd>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi veniam
+            quae quibusdam laudantium dolorem error aperiam labore tempore illo
+            amet, rerum et ab eveniet minus possimus fugit velit quis omnis!
+          </dd>
+        </dl>
+      </section>
+    </aside>
+    <footer>
+      <address id="contato">
+        <p>F&aacute;bio Botelho</p>
+        <p>fabio.botelho@docente.unievangelica.edu.br</p>
+        <p>An&aacute;polis - Go</p>
+      </address>
+    </footer>
+  </body>
+</html>
